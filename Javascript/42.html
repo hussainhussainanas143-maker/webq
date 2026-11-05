@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>42. Demonstrate callbacks, promises, and async/await</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f4f4f4;margin:0;padding:30px}
+.container{max-width:850px;margin:auto;background:white;padding:25px;border-radius:12px;box-shadow:0 4px 15px #0002}
+h1{color:#333;font-size:22px}
+#output{background:#111;color:#0f0;padding:18px;border-radius:8px;min-height:80px;white-space:pre-wrap;font-family:Consolas,monospace}
+.back{display:inline-block;margin-bottom:20px;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="container">
+<a class="back" href="index_js.html">← Back to JavaScript exercises</a>
+<h1>42. Demonstrate callbacks, promises, and async/await</h1>
+<div id="output">Running JavaScript...</div>
+</div>
+<script>
+const output = document.getElementById("output");
+const originalLog = console.log;
+const originalError = console.error;
+const originalWarn = console.warn;
+let lines = [];
+
+function formatValue(value) {
+    if (typeof value === "string") return value;
+    if (value === undefined) return "undefined";
+    try {
+        return JSON.stringify(value, null, 2);
+    } catch (e) {
+        return String(value);
+    }
+}
+function show(...args) {
+    lines.push(args.map(formatValue).join(" "));
+    output.textContent = lines.join("\n");
+}
+console.log = show;
+console.error = (...args) => show("ERROR:", ...args);
+console.warn = (...args) => show("WARNING:", ...args);
+
+try {
+// 42. Demonstrate callbacks, promises, and async/await
+
+// Callback
+function fetchDataCallback(callback) {
+  setTimeout(() => callback("Data from callback"), 500);
+}
+fetchDataCallback(data => console.log(data));
+
+// Promise
+function fetchDataPromise() {
+  return new Promise(resolve => setTimeout(() => resolve("Data from promise"), 500));
+}
+fetchDataPromise().then(data => console.log(data));
+
+// async/await
+async function fetchDataAsync() {
+  const data = await fetchDataPromise();
+  console.log("Data from async/await:", data);
+}
+fetchDataAsync();
+
+} catch (error) {
+    show("ERROR:", error.message);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>63. Count vowels and consonants in a string</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f4f4f4;margin:0;padding:30px}
+.container{max-width:850px;margin:auto;background:white;padding:25px;border-radius:12px;box-shadow:0 4px 15px #0002}
+h1{color:#333;font-size:22px}
+#output{background:#111;color:#0f0;padding:18px;border-radius:8px;min-height:80px;white-space:pre-wrap;font-family:Consolas,monospace}
+.back{display:inline-block;margin-bottom:20px;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="container">
+<a class="back" href="index_js.html">← Back to JavaScript exercises</a>
+<h1>63. Count vowels and consonants in a string</h1>
+<div id="output">Running JavaScript...</div>
+</div>
+<script>
+const output = document.getElementById("output");
+const originalLog = console.log;
+const originalError = console.error;
+const originalWarn = console.warn;
+let lines = [];
+
+function formatValue(value) {
+    if (typeof value === "string") return value;
+    if (value === undefined) return "undefined";
+    try {
+        return JSON.stringify(value, null, 2);
+    } catch (e) {
+        return String(value);
+    }
+}
+function show(...args) {
+    lines.push(args.map(formatValue).join(" "));
+    output.textContent = lines.join("\n");
+}
+console.log = show;
+console.error = (...args) => show("ERROR:", ...args);
+console.warn = (...args) => show("WARNING:", ...args);
+
+try {
+// 63. Count vowels and consonants in a string
+function countVowelsConsonants(str) {
+  const letters = str.toLowerCase().replace(/[^a-z]/g, "");
+  let vowels = 0, consonants = 0;
+  for (const ch of letters) {
+    if ("aeiou".includes(ch)) vowels++;
+    else consonants++;
+  }
+  return { vowels, consonants };
+}
+console.log(countVowelsConsonants("Hello World"));
+
+} catch (error) {
+    show("ERROR:", error.message);
+}
+</script>
+</body>
+</html>
