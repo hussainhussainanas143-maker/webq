@@ -3,35 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style >
-        body{
-            background-color:darksalmon
+    <title>Practice Programs</title>
+    <style>
+        body {
+            background-color: darksalmon;
         }
-        h1{
-            text-align:center;
-            color:floralwhite;
-            font-size:50px;
+
+        h1 {
+            text-align: center;
+            color: floralwhite;
+            font-size: 50px;
         }
-        h2{
-            color:lemonchiffon;
-            font-size:30px;
+
+        h2 {
+            color: lemonchiffon;
+            font-size: 30px;
         }
     </style>
 </head>
 <body>
-    <h1><strong><u>Practice Programs</u></strong></h1>
-    <br><br>
-    <h2><bold>Html programs</bold></h2>
-    <p>click the link to veiw html programs</p>
-    <a  href="html/index_html.html">View HTML Programs</a><br><br>
-    <h2><bold>Css programs</bold></h2>
-    <p>click the link to veiw css programs</p>
-    <a href="Css/index_css.html">View CSS Programs</a><br><br>
-    <h2><bold>JavaScript programs</bold></h2>
-    <p>click the link to veiw JavaScript programs</p>
-    <a href="Javascript/index_js.html">View JavaScript Programs</a><br><br>
+    <main>
+        <h1><strong><u>Practice Programs</u></strong></h1>
 
-    
+        <section aria-labelledby="html-programs">
+            <h2 id="html-programs">HTML programs</h2>
+            <p>Click the link to view HTML programs.</p>
+            <a href="Html/index_html.html">View HTML Programs</a>
+        </section>
+
+        <section aria-labelledby="css-programs">
+            <h2 id="css-programs">CSS programs</h2>
+            <p>Click the link to view CSS programs.</p>
+            <a href="Css/index_css.html">View CSS Programs</a>
+        </section>
+
+        <section aria-labelledby="javascript-programs">
+            <h2 id="javascript-programs">JavaScript programs</h2>
+            <p>Click the link to view JavaScript programs.</p>
+            <a href="Javascript/index_js.html">View JavaScript Programs</a>
+        </section>
+    </main>
 </body>
 </html>
